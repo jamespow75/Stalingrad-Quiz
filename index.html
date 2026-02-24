@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stalingrad: Turning Point Assessment</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 850px; margin: 40px auto; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .module-container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { color: #1a1a1a; border-bottom: 3px solid #d32f2f; padding-bottom: 10px; }
+        h2 { color: #d32f2f; margin-top: 30px; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        
+        .glossary { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 20px; }
+        .glossary-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; font-size: 0.85em; }
+        .term { font-weight: bold; color: #b71c1c; border-bottom: 1px solid #eee; }
+        .def { border-bottom: 1px solid #eee; }
+
+        .map-container { text-align: center; margin: 25px 0; }
+        .map-container img { width: 100%; max-width: 700px; border-radius: 8px; border: 1px solid #ccc; }
+
+        .student-info { background: #fff3f3; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #ffcdd2; }
+        .question { margin-bottom: 25px; padding: 15px; border-left: 5px solid #d32f2f; background: #fafafa; }
+        .question p { font-weight: bold; margin-bottom: 12px; }
+        
+        label { display: block; margin-bottom: 10px; cursor: pointer; }
+        input[type="text"], select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        button { background: #d32f2f; color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-size: 18px; width: 100%; font-weight: bold; }
+        button:hover { background: #b71c1c; }
+        #results { margin-top: 20px; padding: 25px; border-radius: 8px; display: none; text-align: center; }
+        .loading-spinner { display: none; color: #666; font-style: italic; text-align: center; margin-top: 10px;}
+    </style>
+</head>
+<body>
+
+<div class="module-container">
+    <h1>The Battle of Stalingrad: Quiz</h1>
+
+    <div class="glossary">
+        <h2>Pre-Quiz Review</h2>
+        <div class="glossary-grid">
+            <div class="term">Operation Blue</div><div class="def">The 1942 German push for oil and the Volga River.</div>
+            <div class="term">Caucasus</div><div class="def">The oil-rich region south of Stalingrad.</div>
+            <div class="term">Urban Warfare</div><div class="def">"Rattenkrieg" (Rat War)—street-by-street fighting.</div>
+            <div class="term">Turning Point</div><div class="def">A moment after which the course of history is fundamentally altered.</div>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <p><em>Use the map below to visualize the German 1942 Summer Offensive:</em></p>
+        <img src="map.png" alt="Strategic Map of the Battle of Stalingrad">
+    </div>
+
+    <div class="student-info">
+        <label for="studentName"><strong>Student Name:</strong></label>
+        <input type="text" id="studentName" placeholder="First and Last Name" required>
+    </div>
+
+    <form id="quizForm">
+        
+        <h2>Phase 1: Origins & Strategy</h2>
+        
+        <div class="question">
+            <p>1. On what date did the German invasion of the Soviet Union (Operation Barbarossa) actually begin?</p>
+            <label><input type="radio" name="q1" value="a"> August 12, 1939</label>
+            <label><input type="radio" name="q1" value="b"> June 22, 1941</label>
+            <label><input type="radio" name="q1" value="c"> September 1, 1939</label>
+        </div>
+
+        <div class="question">
+            <p>2. What was Hitler’s primary ideological goal for the invasion of the USSR?</p>
+            <label><input type="radio" name="q2" value="a"> To honor the Nazi-Soviet Pact</label>
+            <label><input type="radio" name="q2" value="b"> To destroy Communism and gain "Lebensraum" (Living Space)</label>
+            <label><input type="radio" name="q2" value="c"> To establish a democracy in Russia</label>
+        </div>
+
+        <div class="question">
+            <p>3. Look at the map. What vital resource was the German command targeting in the Caucasus region?</p>
+            <input type="text" name="q3" placeholder="Resource name...">
+        </div>
+
+        <h2>Phase 2: The Siege</h2>
+
+        <div class="question">
+            <p>4. Which specific German unit was tasked with the capture of Stalingrad?</p>
+            <label><input type="radio" name="q4" value="a"> The Fourth Panzer Division</label>
+            <label><input type="radio" name="q4" value="b"> The Sixth Army</label>
+            <label><input type="radio" name="q4" value="c"> Army Group North</label>
+        </div>
+
+        <div class="question">
+            <p>5. Who was the Soviet General who commanded the defenders inside the city?</p>
+            <label><input type="radio" name="q5" value="a"> Vasili Chuikov</label>
+            <label><input type="radio" name="q5" value="b"> Fedor von Bock</label>
+            <label><input type="radio" name="q5" value="c"> Georgy Zhukov</label>
+        </div>
+
+        <div class="question">
+            <p>6. How many German and allied soldiers were taken prisoner at the end of the battle?</p>
+            <label><input type="radio" name="q6" value="a"> 50,000</label>
+            <label><input type="radio" name="q6" value="b"> 235,000</label>
+            <label><input type="radio" name="q6" value="c"> 91,000</label>
+        </div>
+
+        <h2>Phase 3: Historian Debate</h2>
+
+        <div class="question">
+            <p>7. True or False: Richard J. Evans (Source C) argued that Stalingrad was a turning point because it encouraged European resistance movements.</p>
+            <label><input type="radio" name="q7" value="true"> True</label>
+            <label><input type="radio" name="q7" value="false"> False</label>
+        </div>
+
+        <div class="question">
+            <p>8. Which historian argued that Stalingrad was NOT the decisive turning point because the Germans recovered at Kharkov in 1943?</p>
+            <select name="q8">
+                <option value="">-- Choose Historian --</option>
+                <option value="taylor">A. J. P. Taylor</option>
+                <option value="evans">Richard J. Evans</option>
+            </select>
+        </div>
+
+        <h2>Phase 4: Impact & Legacy</h2>
+
+        <div class="question">
+            <p>9. According to 1960s Soviet textbooks (Source F), the advance that ended in Berlin began from which geographical point?</p>
+            <label><input type="radio" name="q9" value="a"> Outside Moscow</label>
+            <label><input type="radio" name="q9" value="b"> The banks of the Volga</label>
+            <label><input type="radio" name="q9" value="c"> The Polish border</label>
+        </div>
+
+        <div class="question">
+            <p>10. What excuse did German radio give for the loss at Stalingrad in 1943?</p>
+            <label><input type="radio" name="q10" value="a"> It was a strategic sacrifice to buy time for defenses</label>
+            <label><input type="radio" name="q10" value="b"> The weather was too cold to continue</label>
+            <label><input type="radio" name="q10" value="c"> Hitler had ordered a retreat earlier</label>
+        </div>
+
+        <button type="button" id="submitBtn" onclick="submitQuiz()">Submit Results</button>
+        <div id="loading" class="loading-spinner">Recording your score in the gradebook...</div>
+    </form>
+
+    <div id="results"></div>
+</div>
+
+<script>
+async function submitQuiz() {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzWiMWIOkXSPi2lP_QurH2XUHzZwCZpRsjjA-B1pyRpj0HZthE7ZFxISA-0gxTXZEmQ_A/exec';
+    const nameInput = document.getElementById('studentName');
+    const btn = document.getElementById('submitBtn');
+    const loadMsg = document.getElementById('loading');
+    const resultsDiv = document.getElementById('results');
+
+    if (!nameInput.value.trim()) { alert("Please enter your name."); return; }
+
+    btn.disabled = true;
+    loadMsg.style.display = 'block';
+
+    const form = document.getElementById('quizForm');
+    let score = 0;
+    const total = 10;
+
+    // Answer Key
+    if (form.q1.value === "b") score++;
+    if (form.q2.value === "b") score++;
+    if (form.q3.value.toLowerCase().includes("oil")) score++;
+    if (form.q4.value === "b") score++;
+    if (form.q5.value === "a") score++;
+    if (form.q6.value === "b") score++;
+    if (form.q7.value === "true") score++;
+    if (form.q8.value === "taylor") score++;
+    if (form.q9.value === "b") score++;
+    if (form.q10.value === "a") score++;
+
+    const percentage = Math.round((score / total) * 100);
+    const payload = { name: nameInput.value, score: score + "/" + total, percentage: percentage };
+
+    try {
+        await fetch(scriptURL, { method: 'POST', mode: 'no-cors', cache: 'no-cache', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        loadMsg.style.display = 'none';
+        form.style.display = 'none';
+        resultsDiv.style.display = "block";
+        resultsDiv.style.backgroundColor = percentage >= 70 ? "#d4edda" : "#fff3cd";
+        resultsDiv.innerHTML = `<h2>Quiz Submitted</h2><p><strong>Student:</strong> ${payload.name}</p><p style="font-size: 24px;"><strong>Score: ${payload.score} (${percentage}%)</strong></p><p>Your grade has been sent to the teacher.</p>`;
+    } catch (e) {
+        btn.disabled = false;
+        loadMsg.innerText = "Error saving. Check your internet connection.";
+    }
+}
+</script>
+</body>
+</html>
